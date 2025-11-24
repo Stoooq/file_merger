@@ -1,0 +1,45 @@
+2025-08-26 08:27:04.401615+02;DATA;0;FE-ferryt-aihubdemo-5677f65f5-8sx7d;appown;0HNF4CGQB91NA:0000013F;UQ250826082704401AIHU-bde0e7be95434f6da1;0;/ferryt/web/ai/chat;"Accept: application/json
+Host: ferrytaihubdemo.domdata.at
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/139.0.0.0 Safari/537.36
+Accept-Encoding: gzip, deflate, br, zstd
+Accept-Language: pl-PL,pl;q=0.9,en-US;q=0.8,en;q=0.7
+Content-Type: application/json
+Origin: https://ferrytaihubdemo.domdata.at
+Content-Length: 437
+X-Request-ID: 99a51367da6c1c6e2c2d71769f547952
+X-Real-IP: 10.244.2.0
+X-Original-Proto: http
+X-Forwarded-Port: 443
+X-Original-Host: ferrytaihubdemo.domdata.at
+X-Forwarded-Scheme: https
+X-Scheme: https
+language: pl-PL
+sec-ch-ua-platform: ""Windows""
+screen-resolution: 1280x720
+sec-ch-ua: ""Not;A=Brand"";v=""99"", ""Google Chrome"";v=""139"", ""Chromium"";v=""139""
+sec-ch-ua-mobile: ?0
+token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmZXJyeXRfc2Vzc2lvbiI6IldQMjUwODI2MDgwNTU0MDkwQUlIVS0zNGIyM2I2YzJiZjY0OGU0OTkiLCJqdGkiOiJkZDM2OTE1NC02NWU1LTQyZGUtOTZmMy1hNmNiNGYzMjhiNzUiLCJmZXJyeXRfdXNlciI6IjIwIiwic3ViIjoibm93aWNrYSIsImZlcnJ5dF91c2VyX2luZm8iOiIxIiwiZmVycnl0X3NlcnZlcl9jb250ZXh0IjoiQUlIVSIsImZlcnJ5dF9saW5rIjoid29ya3BsYWNlL3NzbyIsImZlcnJ5dF9wYXJhbV9tZXNzYWdlcmVxdWlyZW1lbnQiOiIxNjQzMDM5IiwiZmVycnl0X2Fzc2lnbm1lbnQiOiJXb3JrcGxhY2UiLCJuYmYiOjE3NTYxODgzNTQsImV4cCI6MTc1NjE5MTk1NCwiaWF0IjoxNzU2MTg4MzU0LCJpc3MiOiJBSUh1YkRlbW8iLCJhdWQiOiJBSUh1YkRlbW8ifQ.X2Ctg9zJtoXiJTKiGy6gNyTh0o9DPuvc0NQiEn_rVcU
+fonts: codicon;Ubuntu;FontAwesome;designer_20_Icons;Montserrat;Material Icons;fepferryt
+time-zone: Europe/Warsaw
+pixels-on-screen: 96
+Access-Control-Allow-Credentials: false
+Access-Control-Allow-Origin: https://ferrytaihubdemo.domdata.at
+browser-number: Chrome 139
+user-window-width: 1920
+sec-fetch-site: same-origin
+sec-fetch-mode: cors
+sec-fetch-dest: empty
+priority: u=1, i
+X-Original-For: [::ffff:10.244.3.123]:34474
+
+Remote address: 10.244.2.0:0
+Private address: [::ffff:10.244.3.142]:55555
+NodeId: ferryt-aihubdemo-5677f65f5-8sx7d
+"
+2025-08-26 08:27:04.472406+02;DATA;20;FE-ferryt-aihubdemo-5677f65f5-8sx7d;appown;0HNF4CGQB91NA:0000013F;UQ250826082704401AIHU-bde0e7be95434f6da1;0;FerrytAiChat;"Stream request body: {""conversation_id"":""IitzIJuel"",""conversation"":[{""role"":""system"",""content"":[{""type"":""text"",""text"":""Jestem ekspertem....""}]},{""role"":""user"",""content"":[{""type"":""text"",""text"":""hej""}]}],""model_settings"":{""name"":""speakleash/Bielik-11B-v2.2-Instruct-FP8"",""temperature"":0.1,""min_new_tokens"":1,""max_new_tokens"":9000},""context"":{""unique_id"":""UQ250826082704401AIHU-bde0e7be95434f6da1"",""session_id"":""WP250826080554090AIHU-34b23b6c2bf648e499"",""context_id"":""U/20/r0ExI15qSLYgMPO0SOwdTiNgdw6k97TIJMd"",""request_id"":""/workplace/sso""},""runtime"":{""endpoint"":""Ferryt Workplace"",""url"":""/workplace/sso"",""path"":"""",""language"":""pl""},""agent"":{""symbol"":""FerrytWorkplaceChatTEST"",""name"":""Workplace"",""collections"":[],""space"":""tenantNameX"",""settings"":{""rephraser_enabled"":true,""json_schema"":null}}}"
+2025-08-26 08:27:04.485248+02;DATA;20;FE-ferryt-aihubdemo-5677f65f5-8sx7d;appown;0HNF4CGQB91NA:0000013F;UQ250826082704401AIHU-bde0e7be95434f6da1;0;FerrytAiChat;"Sending request: Method: POST, RequestUri: '/conversation/stream', Version: 1.1, Content: System.Net.Http.StringContent, Headers:
+{
+  Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImU1ZDZhYWNkLTBhMGEtNDM0ZS1hZDgyLTczOTQyNDU1ZjMxZSIsImlhdCI6MTc0NzgzMzYzNiwiZXhwIjozMzI4MzgzMzYzNiwic2NvcGUiOiJ0ZW5hbnQiLCJ0ZW5hbnRfaWQiOiJ0ZW5hbnROYW1lWCJ9.JIF5j68TOcFSRXw8-_xjE4-zI0r2EWnOzqZ4vA1NGvU
+  Accept: application/json
+  Content-Type: application/json; charset=utf-8
+}"

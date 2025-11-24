@@ -19,6 +19,30 @@ function App() {
     name: string;
   } | null>(null);
 
+  const readFileContent = (file: File): Promise<string> => {
+    return new Promise((resolve, reject) => {
+      const reader = new FileReader();
+
+      reader.onload = () => {
+        const result = reader.result as string;
+        if (file.name.endsWith(".xlsx")) {
+          const base64Content = result.split(",")[1];
+          resolve(base64Content);
+        } else {
+          resolve(result);
+        }
+      };
+
+      reader.onerror = reject;
+
+      if (file.name.endsWith(".xlsx")) {
+        reader.readAsDataURL(file);
+      } else {
+        reader.readAsText(file);
+      }
+    });
+  };
+
   const mergeDocuments = async () => {
     if (!files) return;
 
@@ -27,7 +51,7 @@ function App() {
       const filesData = await Promise.all(
         files.map(async (file) => ({
           name: file.name,
-          content: await file.text(),
+          content: await readFileContent(file),
         }))
       );
 
@@ -42,13 +66,13 @@ function App() {
         console.log(data)
         const { name, content } = data.merged_file;
 
-        const blob = new Blob([content], { type: "text/plain" });
+        const blob = new Blob([content], { type: "text/csv;charset=utf-8;" });
 
         const url = window.URL.createObjectURL(blob);
 
         setDownloadData({
           url: url,
-          name: name || "merged_document.txt",
+          name: name || "merged_data.csv",
         });
 
         setFiles(null);
@@ -81,7 +105,7 @@ function App() {
             type="file"
             onChange={handleFileChange}
             multiple
-            accept=".txt,.md,.pdf"
+            accept=".csv, .xlsx, .txt"
           />
         </CardContent>
         <CardFooter className="gap-6">

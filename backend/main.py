@@ -17,7 +17,7 @@ app.add_middleware(
 async def merge(request: Request):
     data = await request.json()
     files = data.get("files")
-    logger.info(files)
-    merged_file = merge_files(files)
-    logger.info(merged_file)
-    return {"merged_file": merged_file}
+    merged_result = merge_files(files)
+    logger.info(f"Merged into: {merged_result['name']}")
+    logger.info(merged_result['content'])
+    return {"merged_file": merged_result}

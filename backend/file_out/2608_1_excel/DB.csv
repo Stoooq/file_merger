@@ -1,0 +1,9 @@
+2025-08-26 08:27:04.414584+02;DB;20;FE-ferryt-aihubdemo-5677f65f5-8sx7d;appown;0HNF4CGQB91NA:0000013F;UQ250826082704401AIHU-bde0e7be95434f6da1;0;Connection: 2069505 Runtime;Opening connection
+2025-08-26 08:27:04.415103+02;DB;20;FE-ferryt-aihubdemo-5677f65f5-8sx7d;appown;0HNF4CGQB91NA:0000013F;UQ250826082704401AIHU-bde0e7be95434f6da1;0;Connection: 2069505 Runtime;Creating command from enum: Ferryt.Ai.Sql.QueryKey.CHAT_HISTORY_GET_ML
+2025-08-26 08:27:04.415134+02;DB;20;FE-ferryt-aihubdemo-5677f65f5-8sx7d;appown;0HNF4CGQB91NA:0000013F;UQ250826082704401AIHU-bde0e7be95434f6da1;0;Reader (async) Command: 32527504 Connection: 2069505;"
+                SELECT Chat, UserId, Timestamp
+                FROM AiChatHistory
+                WHERE ConversationId = @ConversationId
+            "
+2025-08-26 08:27:04.451106+02;DB;20;FE-ferryt-aihubdemo-5677f65f5-8sx7d;appown;0HNF4CGQB91NA:0000013F;UQ250826082704401AIHU-bde0e7be95434f6da1;0;Reader result (async) Command: 32527504 Connection: 2069505;False
+2025-08-26 08:27:04.451978+02;DB;20;FE-ferryt-aihubdemo-5677f65f5-8sx7d;appown;0HNF4CGQB91NA:0000013F;UQ250826082704401AIHU-bde0e7be95434f6da1;0;Connection: 2069505 Runtime;Closing connection
