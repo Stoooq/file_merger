@@ -71,6 +71,42 @@ def parse_txt(content):
 
     return pd.DataFrame(data, columns=COLUMN_NAMES)
 
+def parse_log(content):
+    data = []
+    lines = content.splitlines()
+
+    count = 0
+    for line in lines:
+        if count >= 3:
+            break
+            
+        if not line.strip():
+            continue
+
+        raw_parts = line.split('\t')
+        parts = [p for p in raw_parts if p.strip()]
+
+        ts = parts[1] if len(parts) > 1 else None
+        if ts and ts.count(':') == 3:
+            ts = ts[::-1].replace(':', '.', 1)[::-1]
+
+        row = {
+            "timestamp": ts,
+            "level": parts[0] if len(parts) > 0 else None,
+            "userid": parts[2] if len(parts) > 2 else None,
+            "sessionid": parts[3] if len(parts) > 3 else None,
+            "contextid": parts[4] if len(parts) > 4 else None,
+            "requestid": parts[5] if len(parts) > 5 else None,
+            "uniqueid": parts[6] if len(parts) > 6 else None,
+            "error": parts[7] if len(parts) > 7 else None,
+            "message": parts[8] if len(parts) > 8 else None,
+            "description": parts[9] if len(parts) > 9 else None,
+        }
+        data.append(row)
+
+    return pd.DataFrame(data, columns=COLUMN_NAMES)
+
+
 def merge_files(files):
     all_dataframes = []
     
@@ -92,6 +128,8 @@ def merge_files(files):
             df = parse_xlsx(content)
         elif ext == ".txt":
             df = parse_txt(content)
+        elif ext == ".log":
+            df = parse_log(content)
         else:
             logger.warning(f"Nieobsługiwany format: {ext}")
             continue

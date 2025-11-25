@@ -105,7 +105,7 @@ function App() {
             type="file"
             onChange={handleFileChange}
             multiple
-            accept=".csv, .xlsx, .txt"
+            accept=".csv, .xlsx, .txt, .log"
           />
         </CardContent>
         <CardFooter className="gap-6">
