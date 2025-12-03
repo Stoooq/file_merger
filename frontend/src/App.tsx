@@ -14,10 +14,13 @@ import { Input } from "./components/ui/input";
 function App() {
   const [isMerging, setIsMerging] = useState(false);
   const [files, setFiles] = useState<File[] | null>(null);
+  const [errorMessage, setErrorMessage] = useState<string | null>(null);
   const [downloadData, setDownloadData] = useState<{
     url: string;
     name: string;
   } | null>(null);
+
+  const APP_URL = import.meta.env.VITE_APP_URL || "http://127.0.0.1:8000";
 
   const readFileContent = (file: File): Promise<string> => {
     return new Promise((resolve, reject) => {
@@ -47,6 +50,8 @@ function App() {
     if (!files) return;
 
     setIsMerging(true);
+    setErrorMessage(null);
+    setDownloadData(null);
     try {
       const filesData = await Promise.all(
         files.map(async (file) => ({
@@ -55,7 +60,7 @@ function App() {
         }))
       );
 
-      const response = await fetch("http://127.0.0.1:8000/merge", {
+      const response = await fetch(`${APP_URL}/merge`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ files: filesData }),
@@ -63,11 +68,8 @@ function App() {
 
       if (response.ok) {
         const data = await response.json();
-        console.log(data)
         const { name, content } = data.merged_file;
-
         const blob = new Blob([content], { type: "text/csv;charset=utf-8;" });
-
         const url = window.URL.createObjectURL(blob);
 
         setDownloadData({
@@ -77,10 +79,12 @@ function App() {
 
         setFiles(null);
       } else {
-        console.error("Failed to merge documents");
+        const errorData = await response.json();
+        setErrorMessage(errorData.detail || "An error occurred while merging files");
       }
     } catch (error) {
       console.error("Error merging documents:", error);
+      setErrorMessage("Failed to connect to server");
     } finally {
       setIsMerging(false);
     }
@@ -90,6 +94,7 @@ function App() {
     if (e.target.files) {
       setFiles(Array.from(e.target.files));
       setDownloadData(null);
+      setErrorMessage(null);
     }
   };
 
@@ -116,6 +121,12 @@ function App() {
           >
             {isMerging ? "Merging..." : "Merge Documents"}
           </Button>
+
+          {errorMessage && (
+            <div className="w-full p-4 mb-4 text-sm text-red-500 font-bold">
+              <span>Error: </span> {errorMessage}
+            </div>
+          )}
 
           {downloadData && (
             <a
