@@ -20,7 +20,7 @@ function App() {
     name: string;
   } | null>(null);
 
-  const APP_URL = import.meta.env.VITE_APP_URL || "http://127.0.0.1:8000";
+  const APP_URL = import.meta.env.VITE_APP_URL || "http://ferrytwkshop.domdata.at:7997";
 
   const readFileContent = (file: File): Promise<string> => {
     return new Promise((resolve, reject) => {
